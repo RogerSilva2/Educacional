@@ -1,0 +1,31 @@
+﻿<Page
+    x:Class="Educacional.Users"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Educacional"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <StackPanel>
+            <StackPanel HorizontalAlignment="Center">
+                <TextBlock Text="Usuários" FontSize="18" FontWeight="Bold" Foreground="Orange" Margin="0,50,0,0"></TextBlock>
+            </StackPanel>
+            <StackPanel HorizontalAlignment="Center">
+                <TextBlock Text="*** Clique no usuário para escutar seu nome ***" Margin="10,25,10,10" Foreground="Blue" FontSize="12"></TextBlock>
+            </StackPanel>
+            <StackPanel>
+                <ListView x:Name="UsersListView" ItemsSource="{x:Bind UsersList}" IsItemClickEnabled="True" ItemClick="Reader_ItemClick">
+                    <ListView.ItemTemplate>
+                        <DataTemplate x:DataType="local:User" >
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="{Binding Profile}"></TextBlock>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Page>
